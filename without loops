@@ -1,0 +1,37 @@
+*std::ostream_iterator allows to print contents of an STL container to any output stream without explicit loops.
+*The second argument of std::ostream_iterator constructor sets the delimiter. For example, the following code:
+
+Eg:
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+  
+std::vector<int> v = {1,2,3,4};
+std::copy(v.begin(), v.end(), std::ostream_iterator<int>(std::cout, " ! "));
+    return 0;
+}
+o/p:1 ! 2 ! 3 ! 4 !
+
+
+
+
+*Implicit type cast:
+std::ostream_iterator allows to cast container's content type implicitly. For example, let's tune std::cout to print
+floating-point values with 3 digits after decimal point:
+
+Eg:
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+   
+std::vector<int> v = {1,2,3,4};
+cout<<setprecision(3);
+fixed(cout);
+std::copy(v.begin(), v.end(), std::ostream_iterator<float>(std::cout, " ! "));
+    return 0;
+}
+
+o/p:
+1.000 ! 2.000 ! 3.000 ! 4.000 ! 
